@@ -1,6 +1,5 @@
 import classes from "./footer.module.scss";
 import Image from "next/image";
-import { useTranslate } from "../../hooks/useTranslate";
 
 export const Footer = () => {
   return (
