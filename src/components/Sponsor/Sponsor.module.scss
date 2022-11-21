@@ -1,0 +1,36 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.Sponsor {
+  @include utilities.grid-params-rows(grid, 4.5rem 10rem, 0%);
+  height: 33.33vh;
+  background: #fff;
+  width: 100%;
+
+  &__Title {
+    height: 4rem;
+    @include utilities.flexbox-params(flex, center, center);
+    @include utilities.background-image-params(
+      "/Imagenes/web/Recurso 57.png",
+      center,
+      no-repeat,
+      100% 100%
+    );
+  }
+
+  &Row {
+    width: 100%;
+    @include utilities.flexbox-params(flex, center, center);
+    justify-items: center;
+    gap: 1rem;
+    padding: 2rem;
+
+    &__Img {
+      @include utilities.flexbox-params(flex, center, center);
+    }
+  }
+}

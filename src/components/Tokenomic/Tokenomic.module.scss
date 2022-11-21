@@ -1,0 +1,24 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.Tokenomic {
+  height: 100vh;
+  @include utilities.background-image-params(
+    "/Imagenes/flaquita.jpg",
+    center,
+    no-repeat,
+    cover
+  );
+
+  &__Text {
+    height: 40vh;
+    @include utilities.grid-params-rows(grid, repeat(4, 20%), 2%);
+    justify-items: center;
+    align-content: flex-end;
+    align-items: center;
+  }
+}

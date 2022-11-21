@@ -1,0 +1,62 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.OurTecnologhy {
+  background: linear-gradient(90deg, #1f281c 0%, #518b44 94%);
+  height: 100vh;
+  @include utilities.grid-params-rows(grid, 50vh 35vh, 3%);
+  align-content: center;
+  padding-left: 3%;
+
+  &__Text {
+    width: 60%;
+    height: 80%;
+    @include utilities.grid-params-rows(grid, repeat(3, 1fr), 5%);
+    align-items: flex-end;
+    // align-content: center;
+    padding-left: 5%;
+
+    & h1 {
+      @include utilities.flexbox-params(flex, center, flex-start);
+      font-size: 3rem;
+    }
+
+    & h5 {
+      font-size: 1rem;
+    }
+  }
+
+  &__Column {
+    width: 70%;
+    // padding: 3% 0% 3%;
+    @include utilities.grid-params-columns(grid, repeat(2, 1fr), 10%);
+    @include utilities.grid-params-rows(grid, repeat(2, 1fr), 20%);
+    &Num {
+      @include utilities.grid-params-columns(grid, 10% 90%, 0%);
+
+      & p {
+        font-size: 13px;
+        margin-left: 10px;
+      }
+
+      & div {
+        border: medium solid #999;
+        width: 30px;
+        height: 30px;
+        @include utilities.flexbox-params(flex, center, center);
+        padding: 10%;
+      }
+    }
+  }
+}
+
+.Img1 {
+  position: absolute;
+  right: 5%;
+  top: 15rem;
+  min-width: 20rem;
+}

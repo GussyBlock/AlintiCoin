@@ -1,0 +1,58 @@
+/*
+  Reset
+  ==========================================================================
+*/
+@use "./colors" as colors;
+
+*,
+html,
+body {
+  margin: 0;
+  font-family: "HelveticaNeueBold";
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  color: #fff;
+  background: colors.$deg-dark;
+}
+
+// scrollbar custom
+
+body::-webkit-scrollbar {
+  width: 8px;
+  display: none;
+}
+body::-webkit-scrollbar-track {
+  background-color: colors.$dark;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: colors.$primary;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+b {
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+img {
+  user-select: none;
+}
+
+.item {
+  padding: 10px;
+  font-size: 1rem;
+  border: medium solid #999;
+}

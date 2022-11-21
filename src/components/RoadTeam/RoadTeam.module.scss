@@ -1,0 +1,92 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.RoadTeam {
+  width: 100vw;
+  height: 100vh;
+  @include utilities.grid-params-rows(grid, 60vh 40vh, 0%);
+
+  &__Roadmap {
+    background: linear-gradient(180deg, #1f281c 0%, #518b44 90%, #552e22 94%);
+    @include utilities.grid-params-rows(grid, 4rem 1fr 4rem, 1%);
+
+    &Title {
+      @include utilities.flexbox-params(flex, center, center);
+      @include utilities.background-image-params(
+        "/Imagenes/web/Recurso 58.png",
+        bottom center,
+        no-repeat,
+        contain
+      );
+    }
+
+    &Fechas {
+      @include utilities.grid-params-columns(grid, repeat(5, 1fr), 1%);
+      // padding: 0 10% 0;
+
+      &__Container {
+        @include utilities.grid-params-columns(grid, 70% 30%, 0%);
+        &__Poste {
+          position: relative;
+          right: 35%;
+          max-width: 15rem;
+        }
+
+        &__Text {
+          width: 80%;
+          height: 80%;
+          @include utilities.grid-params-rows(grid, repeat(2, 1fr), 1%);
+          justify-items: center;
+          align-items: center;
+
+          & h2 {
+            width: 20%;
+            height: 25%;
+            @include utilities.flexbox-params(flex, center, center);
+
+            border-radius: 100%;
+            border: medium solid #999;
+          }
+        }
+      }
+    }
+
+    // &Tierra {
+    //   background: linear-gradient(180deg, #1f281c 0%, #552e22 94%);
+    // }
+  }
+
+  &__Equipo {
+    background: linear-gradient(180deg, #1f281c 0%, #518b44 94%);
+    @include utilities.grid-params-rows(grid, 4rem 1fr, 1%);
+    align-content: center;
+
+    &Title {
+      @include utilities.flexbox-params(flex, center, center);
+      @include utilities.background-image-params(
+        "/Imagenes/web/Recurso 58.png",
+        bottom center,
+        no-repeat,
+        contain
+      );
+    }
+
+    &Team {
+      // @include utilities.grid-params-columns(grid, 10vw 1fr 10vw, 1%);
+      @include utilities.grid-params-columns(grid, 10% 10%, 0%);
+      justify-content: space-between;
+      justify-items: center;
+      align-items: center;
+
+      &List {
+        position: absolute;
+        left: 10%;
+        max-width: 12rem;
+      }
+    }
+  }
+}

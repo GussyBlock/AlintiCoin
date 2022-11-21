@@ -1,0 +1,70 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.Creator {
+  width: 100%;
+  height: 100vh;
+  @include utilities.grid-params-rows(grid, 70vh 30vh, 0%);
+
+  &Parte1 {
+    width: 100%;
+    @include utilities.grid-params-rows(grid, 4rem 1fr, 0%);
+    background: linear-gradient(90deg, #1f281c 0%, #518b44 94%);
+    margin-top: 1px;
+
+    &__Title {
+      // @include utilities.grid-params-rows(grid, 1fr, 0%);
+      // justify-content: center;
+      // align-items: center; //Esto o esto:
+      @include utilities.flexbox-params(flex, center, center);
+      @include utilities.background-image-params(
+        "/Imagenes/web/Recurso 58.png",
+        bottom center,
+        no-repeat,
+        contain
+      );
+    }
+
+    &__Info {
+      width: 100%;
+      @include utilities.grid-params-columns(grid, 31% 40% 29%, 0%);
+      justify-items: center;
+      align-items: center;
+      padding: 0 4% 0;
+
+      &__Img {
+        max-width: 19rem;
+      }
+      &__Video {
+        height: 80%;
+        @include utilities.grid-params-rows(grid, 40% 1fr, 2%);
+        justify-items: center;
+        // align-items: center;
+      }
+    }
+  }
+
+  &Parte2 {
+    width: 100%;
+    background: linear-gradient(180deg, #1f281c 15%, #518b44 94%);
+    @include utilities.grid-params-rows(grid, 4rem 1fr, 0%);
+
+    &__Img {
+      @include utilities.background-image-params(
+        "/Imagenes/web/Recurso 58.png",
+        bottom center,
+        no-repeat,
+        contain
+      );
+    }
+
+    &__text {
+      @include utilities.flexbox-params(flex, center, center);
+      padding: 0% 20% 0%;
+    }
+  }
+}
