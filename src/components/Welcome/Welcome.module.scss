@@ -1,0 +1,80 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.Welcome {
+  height: 100%;
+  height: auto;
+  position: relative;
+  background: linear-gradient(90deg, #1f281c 35%, #518b44 94%);
+  box-shadow: 20px 20px 100px 0px rgb(0, 0, 0, 1);
+  z-index: 1;
+  & > p {
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    @include breakpoints.min-large {
+    }
+  }
+
+  &__Grid {
+    display: grid;
+    width: 98%;
+    margin: auto;
+    height: auto;
+
+    background: #fff;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    // align-items: flex-end;
+
+    @include breakpoints.min-large {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      align-items: stretch;
+    }
+
+    &__Des {
+      position: relative;
+      // @include breakpoints.min-large {
+      //   @include utilities.flex(row, wrap, center, center);
+      // }
+      & p {
+        height: 100%;
+        width: 80%;
+        color: #518b44;
+        margin: auto;
+        padding: 2rem 2rem;
+        text-align: center;
+        box-shadow: 0px 2px #518b44;
+        @include utilities.flex(row, wrap, center, center);
+
+        @include breakpoints.min-large {
+          padding: 1rem 0.5rem;
+          box-shadow: 0px 0px #518b44;
+        }
+      }
+
+      &__Img {
+        position: absolute;
+        right: 0;
+        // bottom: 0;
+        top: 10%;
+        // width: 10px;
+        display: none;
+        @include breakpoints.min-large {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.Forsado {
+  @include breakpoints.min-large {
+    box-shadow: 0px 0px #518b44;
+  }
+}

@@ -6,31 +6,56 @@
 @use "/src/styles/base/heightValues" as hvalues;
 
 .Sponsor {
-  @include utilities.grid-params-rows(grid, 4.5rem 10rem, 0%);
-  height: 33.33vh;
+  @include utilities.flex(column, nowrap, center, stretch);
+  height: auto;
   background: #fff;
   width: 100%;
 
   &__Title {
-    height: 4rem;
-    @include utilities.flexbox-params(flex, center, center);
-    @include utilities.background-image-params(
+    height: auto;
+    padding: 0.5rem;
+    @include utilities.flex(row, nowrap, center, center);
+    @include utilities.background-image(
       "/Imagenes/web/Recurso 57.png",
       center,
       no-repeat,
       100% 100%
     );
+    h5 {
+      width: 40%;
+      margin: auto;
+      text-align: center;
+      font-size: 0.6rem;
+    }
+    @include breakpoints.min-large {
+      padding: 1rem;
+
+      h5 {
+        font-size: 0.8rem;
+      }
+    }
   }
 
   &Row {
+    display: grid;
+    padding: 0.5rem;
+    height: auto;
     width: 100%;
-    @include utilities.flexbox-params(flex, center, center);
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
-    padding: 2rem;
+
+    @include breakpoints.min-large {
+      padding: 1rem 0.5rem;
+    }
 
     &__Img {
-      @include utilities.flexbox-params(flex, center, center);
+      height: auto;
+      @include utilities.flex(row, nowrap, center, center);
+      transition: all 0.4s ease;
+      &:hover {
+        transform: scale(1.2);
+        transition: all 0.4s ease;
+      }
     }
   }
 }

@@ -8,25 +8,26 @@
   overflow: hidden;
 }
 
-@mixin flexbox-params($display, $align, $justify) {
-  display: $display;
-  align-items: $align;
+@mixin flex($dir, $wrap, $justify, $align) {
+  display: flex;
+  flex-flow: $dir $wrap;
   justify-content: $justify;
+  align-items: $align;
 }
 
-@mixin grid-params-columns($display, $columns, $column-g) {
-  display: $display;
+@mixin grid-params-columns($columns, $column-g) {
+  display: grid;
   grid-template-columns: $columns;
   column-gap: $column-g;
 }
 
-@mixin grid-params-rows($display, $rows, $row-g) {
-  display: $display;
+@mixin grid-params-rows($rows, $row-g) {
+  display: grid;
   grid-template-rows: $rows;
   row-gap: $row-g;
 }
 
-@mixin background-image-params($url, $position, $repeat, $size) {
+@mixin background-image($url, $position, $repeat, $size) {
   background-image: url($url);
   background-position: $position;
   background-repeat: $repeat;

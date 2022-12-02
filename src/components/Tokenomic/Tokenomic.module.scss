@@ -7,7 +7,7 @@
 
 .Tokenomic {
   height: 100vh;
-  @include utilities.background-image-params(
+  @include utilities.background-image(
     "/Imagenes/flaquita.jpg",
     center,
     no-repeat,
@@ -16,7 +16,8 @@
 
   &__Text {
     height: 40vh;
-    @include utilities.grid-params-rows(grid, repeat(4, 20%), 2%);
+    text-align: center;
+    @include utilities.grid-params-rows(repeat(4, 20%), 2%);
     justify-items: center;
     align-content: flex-end;
     align-items: center;

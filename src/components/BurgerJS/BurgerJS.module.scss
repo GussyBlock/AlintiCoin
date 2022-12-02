@@ -1,0 +1,273 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.BurgerJS {
+  width: 100%;
+
+  &__Gris {
+    filter: grayscale(100%);
+  }
+
+  &__Menu {
+    width: 100%;
+    height: hvalues.$header-mobile-h;
+    position: fixed;
+    padding: 0.2rem;
+    background: linear-gradient(90deg, #1f281c 35%, #518b44 90%);
+    @include utilities.flex(row, wrap, space-between, center);
+    z-index: 10000000;
+
+    &IconMenu {
+      z-index: 100000000;
+      @include breakpoints.min-large {
+        display: none;
+      }
+    }
+
+    &IconAli {
+      z-index: 100000000;
+      width: 3rem;
+    }
+    @include breakpoints.min-large {
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  right: 0;
+  height: 0;
+  width: 100%;
+  opacity: 0;
+  overflow: hidden;
+  @include utilities.flex(row, nowrap, center, center);
+  transition: all 0.4s ease;
+  z-index: 10000000;
+
+  @include breakpoints.min-large {
+    position: relative;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  &__link {
+    display: block;
+    font-size: 0.8rem;
+    // overflow: hidden;
+    // visibility: hidden;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #303440;
+  }
+}
+
+.list {
+  width: 100%;
+  height: 100vh;
+  @include utilities.flex(column, wrap, center, auto);
+  background: white;
+  overflow: hidden;
+  z-index: 10000000;
+
+  @include breakpoints.min-large {
+    width: auto;
+    height: auto;
+    @include utilities.flex(row, nowrap, center, center);
+    gap: 0.5rem;
+    background: transparent;
+    overflow: visible;
+  }
+
+  &__inside:hover > a {
+    background: #30344050;
+    transition: all 0.4s ease;
+
+    @include breakpoints.min-large {
+      background: rgb(73, 152, 73);
+      color: #fff;
+      box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+      transform: scale(1.2);
+    }
+  }
+
+  &__item {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    margin: 0.8rem 0;
+    @include utilities.flex(column, nowrap, center, flex-start);
+
+    &__show {
+      border-left: 2px solid #000;
+      width: 235px;
+      margin: 0 auto;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      @include utilities.flex(column, nowrap, center, stretch);
+      transition: all 0.4s ease;
+
+      @include breakpoints.min-large {
+        position: absolute;
+        top: 300%;
+        left: 0;
+        right: 0;
+        width: 150px;
+        height: 160px;
+        overflow: hidden;
+        visibility: hidden;
+        border-left: 0px solid #000;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+        transition: all 0.4s ease;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    @include utilities.flex(row, nowrap, flex-start, center);
+    gap: 1rem;
+    width: 250px;
+    margin: auto;
+    z-index: 10000000;
+
+    & > a {
+      color: #000;
+    }
+    @include breakpoints.min-large {
+      @include utilities.flex(row, nowrap, center, center);
+      width: 150px;
+      & > a {
+        color: #000;
+        font-size: 0.8rem;
+      }
+      transition: all 0.4s ease;
+    }
+
+    &__arrow {
+      position: absolute;
+      right: 0;
+      @include breakpoints.min-large {
+        top: 100%;
+        right: auto;
+      }
+    }
+
+    &:hover {
+      @include breakpoints.min-large {
+        transform: scale(1.1);
+        transition: all 0.4s ease;
+      }
+    }
+  }
+
+  & li:hover ul {
+    @include breakpoints.min-large {
+      opacity: 1;
+      overflow: visible;
+      visibility: visible;
+      top: 140%;
+      transition: all 0.4s ease;
+    }
+  }
+
+  & ul::before {
+    @include breakpoints.min-large {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 12px solid #fff;
+      position: absolute;
+      top: -12px;
+      left: 45%;
+    }
+  }
+}
+
+.visibleMenu {
+  height: 100vh;
+  opacity: 1;
+  transition: all 0.4s ease;
+
+  @include breakpoints.min-large {
+    height: auto;
+  }
+}
+.visible {
+  height: 160px;
+  opacity: 1;
+  visibility: visible;
+
+  transition: all 0.4s ease;
+
+  @include breakpoints.min-large {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// .svgwrapper {
+//   margin-top: 0;
+//   position: relative;
+//   width: 200px;
+//   /*make sure to use same height/width as in the html*/
+//   height: 40px;
+//   display: inline-block;
+//   border-radius: 3px;
+//   margin-left: 5px;
+//   margin-right: 5px;
+//   z-index: 100000000;
+// }
+// #shape {
+//   stroke-width: 6px;
+//   fill: transparent;
+//   stroke: gray;
+//   stroke-dasharray: 85 400;
+//   stroke-dashoffset: -220;
+//   transition: 1s all ease;
+// }
+// /*
+//     Pushing the text up into the SVG. Without this the
+//     text would be below the div's.
+// */
+
+// #text {
+//   margin-top: -35px;
+//   text-align: center;
+// }
+
+// #text a {
+//   color: white;
+//   text-decoration: none;
+//   font-weight: 100;
+//   font-size: 1.3em;
+// }
+
+// .svgwrapper:hover #shape {
+//   stroke-dasharray: 50 0;
+//   stroke-width: 3px;
+//   stroke-dashoffset: 0;
+//   stroke: #06d6a0;
+// }
+// .spot {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   padding: 0;
+//   top: 10;
+//   left: 0;
+// }

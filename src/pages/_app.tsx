@@ -1,12 +1,12 @@
 import type { AppProps } from "next/app";
-import { Header } from "../components/Header/Header";
+import { BurgerJS } from "../components/BurgerJS/BurgerJS";
 import "/src/styles.scss";
 import { Footer } from "../components/Footer/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div style={{ minWidth: "295px" }}>
-      <Header />
+      <BurgerJS />
       <Component {...pageProps} />
       <Footer />
     </div>

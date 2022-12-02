@@ -6,57 +6,121 @@
 @use "/src/styles/base/heightValues" as hvalues;
 
 .OurTecnologhy {
+  position: relative;
+  width: 100%;
+  height: auto;
   background: linear-gradient(90deg, #1f281c 0%, #518b44 94%);
-  height: 100vh;
-  @include utilities.grid-params-rows(grid, 50vh 35vh, 3%);
-  align-content: center;
-  padding-left: 3%;
+  padding: 1rem;
+  @include utilities.flex(column, nowrap, center, flex-start);
+  gap: 1rem;
 
   &__Text {
-    width: 60%;
-    height: 80%;
-    @include utilities.grid-params-rows(grid, repeat(3, 1fr), 5%);
-    align-items: flex-end;
-    // align-content: center;
-    padding-left: 5%;
+    width: 100%;
+    margin: 0rem;
+    @include utilities.flex(column, nowrap, space-between, center);
+    gap: 1rem;
+    background: transparent;
+    transition: all 0.4s ease;
 
-    & h1 {
-      @include utilities.flexbox-params(flex, center, flex-start);
-      font-size: 3rem;
+    // &:hover {
+    //   transform: scale(1.08);
+    //   // background: #000;
+    //   box-shadow: -2px -2px 100px 0px rgb(0, 0, 0, 1) inset,
+    //     2px 2px 100px 0px rgb(0, 0, 0, 1);
+    //   transition: all 0.4s ease;
+    // }
+
+    @include breakpoints.min-large {
+      width: 65%;
+      @include utilities.flex(column, nowrap, space-between, flex-start);
+      margin-left: 3rem;
+      margin-top: 2rem;
+      background: transparent;
     }
 
-    & h5 {
-      font-size: 1rem;
+    & h1 {
+      color: #fff;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    & p {
+      font-size: 0.8rem;
+      padding: 1rem 2rem;
+      color: #fff;
+      @include breakpoints.min-large {
+        padding: 1rem 0;
+      }
     }
   }
 
   &__Column {
-    width: 70%;
-    // padding: 3% 0% 3%;
-    @include utilities.grid-params-columns(grid, repeat(2, 1fr), 10%);
-    @include utilities.grid-params-rows(grid, repeat(2, 1fr), 20%);
+    width: 100%;
+    margin: auto;
+    @include utilities.grid-params-columns(
+      repeat(auto-fit, minmax(285px, 1fr)),
+      5%
+    );
+    row-gap: 2rem;
+
+    @include breakpoints.min-large {
+      @include utilities.grid-params-columns(
+        repeat(auto-fit, minmax(360px, 1fr)),
+        5%
+      );
+      width: 80%;
+      margin: auto;
+    }
+
     &Num {
-      @include utilities.grid-params-columns(grid, 10% 90%, 0%);
+      padding: 2rem 2rem 2rem 1rem;
+      @include utilities.flex(row, nowrap, center, center);
+      border: 3px solid #fff;
+      border-radius: 10%;
+      transition: all 0.4s ease;
+
+      @include breakpoints.min-large {
+        padding: 0.5rem 2rem;
+      }
 
       & p {
-        font-size: 13px;
-        margin-left: 10px;
+        color: #fff;
+        font-size: 0.7rem;
+        @include breakpoints.min-large {
+          font-size: 0.7rem;
+        }
       }
 
       & div {
+        padding: 0 7px;
+        margin-right: 1rem;
+        display: inline;
         border: medium solid #999;
-        width: 30px;
-        height: 30px;
-        @include utilities.flexbox-params(flex, center, center);
-        padding: 10%;
+        border-radius: 50%;
+        color: #fff;
+      }
+
+      &:hover {
+        transform: scale(1.08);
+        background: #fff;
+        transition: all 0.4s ease;
+
+        p,
+        div {
+          color: #518b44;
+        }
       }
     }
   }
-}
 
-.Img1 {
-  position: absolute;
-  right: 5%;
-  top: 15rem;
-  min-width: 20rem;
+  &__Img1 {
+    position: absolute;
+    visibility: hidden;
+    @include breakpoints.min-large {
+      right: 2%;
+      top: 5%;
+      position: absolute;
+      visibility: visible;
+    }
+  }
 }

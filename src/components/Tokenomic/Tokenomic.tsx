@@ -1,6 +1,4 @@
 import classes from "./Tokenomic.module.scss";
-import Image from "next/image";
-import Link from "next/link";
 
 export const Tokenomic = () => {
   return (
