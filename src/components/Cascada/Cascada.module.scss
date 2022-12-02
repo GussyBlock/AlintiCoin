@@ -1,0 +1,53 @@
+@use "/src/styles/base/images";
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/zIndex" as zIndex;
+@use "/src/styles/base/heightValues" as hvalues;
+
+.Cascada {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  &__Imagen {
+    padding-top: hvalues.$header-mobile-h;
+    width: 100%;
+  }
+
+  &__Boton {
+    position: absolute;
+    bottom: 3%;
+    left: 1%;
+    // outline: none;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      colors.$primary 0%,
+      colors.$secondary 25%,
+      colors.$primary 50%,
+      colors.$secondary 75%,
+      colors.$primary 100%
+    );
+    color: colors.$deg-brown-light;
+    text-shadow: 1px 1px 1px #000;
+    padding: 0.4rem 1rem;
+    // text-transform: uppercase;
+    border-radius: 10px;
+    cursor: pointer;
+
+    & > h1 {
+      font-size: 10px;
+      transition: all 0.5s ease;
+    }
+
+    @include breakpoints.min-large {
+      font-size: 10px;
+      bottom: 7%;
+      left: 10%;
+      & > h1 {
+        font-size: 25px;
+      }
+    }
+  }
+}

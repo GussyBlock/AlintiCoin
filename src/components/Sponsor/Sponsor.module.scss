@@ -52,9 +52,12 @@
       height: auto;
       @include utilities.flex(row, nowrap, center, center);
       transition: all 0.4s ease;
-      &:hover {
-        transform: scale(1.2);
-        transition: all 0.4s ease;
+
+      @include breakpoints.min-large {
+        &:hover {
+          transform: scale(1.2);
+          transition: all 0.4s ease;
+        }
       }
     }
   }

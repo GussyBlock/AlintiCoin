@@ -68,10 +68,18 @@
 
     &__Parte2 {
       @include utilities.flex(row, nowrap, center, center);
-      padding-right: 8%;
+
+      @include breakpoints.min-large {
+        padding-right: 8%;
+      }
+
       &__Imagen {
         position: relative;
-        width: 20rem;
+        width: 16rem;
+
+        @include breakpoints.min-large {
+          width: 20rem;
+        }
 
         & > h1 {
           width: 100%;
@@ -92,6 +100,11 @@
           h2 {
             text-align: center;
             transition: all 0.5s ease;
+            font-size: 0.7rem;
+
+            @include breakpoints.min-large {
+              font-size: 1rem;
+            }
           }
 
           h2:hover {
@@ -103,9 +116,24 @@
         &__sawp {
           width: 55%;
           position: absolute;
-          top: 58%;
+          top: 58.5%;
           @include utilities.flex(column, nowrap, center, center);
-          gap: 44px;
+          gap: 30px;
+
+          @include breakpoints.min-large {
+            top: 58%;
+            gap: 44px;
+          }
+
+          h2 {
+            // text-align: center;
+            font-size: 0.8rem;
+            transition: all 0.5s ease;
+
+            @include breakpoints.min-large {
+              font-size: 1rem;
+            }
+          }
 
           h2:hover {
             color: black;
@@ -118,10 +146,15 @@
             width: 100%;
             position: absolute;
             top: 77%;
-            font-size: 1rem;
+            font-size: 0.8rem;
             text-align: center;
             transition: all 0.5s ease;
+
+            @include breakpoints.min-large {
+              font-size: 1rem;
+            }
           }
+
           h2:hover {
             transform: scale(1.2);
             transition: all 0.5s ease;
