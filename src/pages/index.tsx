@@ -6,6 +6,7 @@ import { Sponsor } from "../components/Sponsor/Sponsor";
 import { Tokenomic } from "../components/Tokenomic/Tokenomic";
 import { Swap } from "../components/Swap/Swap";
 import { Cascada } from "../components/Cascada/Cascada";
+import { RoadTeam } from "../components/RoadTeam/RoadTeam";
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
       <Sponsor />
       <Tokenomic />
       <Swap />
+      <RoadTeam />
     </div>
   );
 };

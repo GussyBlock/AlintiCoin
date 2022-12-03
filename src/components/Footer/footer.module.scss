@@ -116,6 +116,10 @@
         // width: 16rem;
         padding: 0.2rem;
 
+        & input {
+          color: #000;
+        }
+
         & h3 {
           padding: 10px 0% 10px;
           color: #fff;
@@ -146,6 +150,7 @@
         height: 100%;
         padding: 1rem;
         @include utilities.flex(row, nowrap, space-evenly, center);
+        gap: 1rem;
 
         @include breakpoints.min-large {
           gap: 0.5rem;
